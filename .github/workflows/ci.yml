@@ -5,14 +5,37 @@ on:
     branches:
       - main
       - develop
+      - "feature/**"
+  pull_request:
 
 jobs:
-  build:
+  checks:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout do código
         uses: actions/checkout@v4
 
-      - name: Rodando testes (simulado)
-        run: echo "CI rodando com sucesso!"
+      - name: Mostrar branch/evento (verificação)
+        run: |
+          echo "Event: ${{ github.event_name }}"
+          echo "Ref:   ${{ github.ref }}"
+          echo "Branch:${{ github.ref_name }}"
+
+      - name: Checks rápidos (feature)
+        if: startsWith(github.ref, 'refs/heads/feature/')
+        run: |
+          echo "Rodando checks RÁPIDOS porque é feature/*"
+          echo "Aqui entraria lint, testes unitários rápidos, etc."
+
+      - name: Checks completos (develop/main)
+        if: github.ref_name == 'develop' || github.ref_name == 'main'
+        run: |
+          echo "Rodando checks COMPLETOS porque é develop/main"
+          echo "Aqui entraria suíte completa de testes, build mais pesado, etc."
+
+      - name: Simular etapa extra (somente main)
+        if: github.ref_name == 'main'
+        run: |
+          echo "MAIN detectado: aqui poderia gerar artefato/release (simulado)"
+
