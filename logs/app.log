@@ -1,0 +1,5 @@
+2026-01-18 INFO user=clayton action=login time=120ms
+2026-01-18 INFO user=maria action=login time=95ms
+2026-01-18 WARN user=clayton action=request time=450ms
+2026-01-18 ERROR user=admin action=db_connect time=timeout
+2026-01-18 INFO user=clayton action=logout time=80ms

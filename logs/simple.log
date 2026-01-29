@@ -1,0 +1,5 @@
+INFO user=clayton
+INFO user=maria
+WARN user=clayton
+ERRROR user=admin
+INFO user=ana
