@@ -6,7 +6,8 @@ on:
       - main
       - develop
       - "feature/**"
-  tags:
+  push:  
+    tags:
       - "v*.*.*"
 
 jobs:
