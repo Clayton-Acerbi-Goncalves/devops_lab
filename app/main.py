@@ -1,1 +1,1 @@
-print("Hello from Docker in GitHub Actions!")
+print("Hello from DevOps Lab 🚀")
